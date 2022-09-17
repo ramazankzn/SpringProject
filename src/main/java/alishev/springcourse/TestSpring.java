@@ -10,6 +10,9 @@ public class TestSpring {
 //
 //        MusicPlayer musicPlayer = new MusicPlayer(music);
 
+        ClassicalMusic classicalMusic = context.getBean("classicalMusicBean", ClassicalMusic.class);
+        System.out.println(classicalMusic.getSong());
+
         MusicPlayer firstMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
         MusicPlayer secondMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
 
@@ -18,6 +21,8 @@ public class TestSpring {
 
         System.out.println(firstMusicPlayer);
         System.out.println(secondMusicPlayer);
+
+        firstMusicPlayer.playMusicList();
 
         firstMusicPlayer.setVolume(10);
 

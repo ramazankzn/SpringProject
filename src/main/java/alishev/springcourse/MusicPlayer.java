@@ -6,6 +6,14 @@ import java.util.List;
 public class MusicPlayer {
     private List<Music> musicList = new ArrayList<>();
 
+    void init() {
+        System.out.printf("MusicPlayer %s INITIALIZATION%n", this);
+    }
+
+    void destroy() {
+        System.out.printf("Music Player %s DESTROYING%n", this);
+    }
+
     private String name;
 
     private int volume;
@@ -26,15 +34,17 @@ public class MusicPlayer {
         this.volume = volume;
     }
 
-    public MusicPlayer(){}
+    public MusicPlayer() {
+    }
 
     public void setMusicList(List<Music> musicList) {
         this.musicList = musicList;
     }
 
     public void playMusicList() {
-        for (Music music:musicList
-             ) {
+        for (Music music : musicList
+        ) {
             System.out.printf("Playing %s from MusicList%n", music.getSong());
-        }    }
+        }
+    }
 }

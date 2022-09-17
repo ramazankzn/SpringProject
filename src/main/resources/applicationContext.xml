@@ -15,11 +15,16 @@
     <bean id="rapMusicBean"
           class="alishev.springcourse.RapMusic"/>
     <bean id="classicalMusicBean"
-          class="alishev.springcourse.ClassicalMusic"/>
+          class="alishev.springcourse.ClassicalMusic"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy"
+          factory-method="getClassicalMusic"/>
 
     <bean id="musicPlayer"
           class="alishev.springcourse.MusicPlayer"
-          scope="prototype">
+          scope="prototype"
+          init-method="init"
+          destroy-method="destroy">
         <property name="musicList">
             <list value-type="alishev.springcourse.Music">
                 <ref bean="rockMusicBean"/>
