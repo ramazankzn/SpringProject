@@ -2,12 +2,25 @@ package alishev.springcourse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.Random;
 
 @Component
 public class MusicPlayer {
+    @Value("${musicPlayer.name}")
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public int getVolume() {
+        return volume;
+    }
+@Value("${musicPlayer.volume}")
+    int volume;
 
     private Music music1;
     private Music music2;

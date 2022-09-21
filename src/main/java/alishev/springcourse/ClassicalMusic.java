@@ -1,14 +1,25 @@
 package alishev.springcourse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
+@Component @Scope("prototype")
 public class ClassicalMusic implements Music {
     private ClassicalMusic() {
+    }
+    @PostConstruct
+    private void init(){
+        System.out.println("Classical Music INITIALIZATION");
+    }
+    @PreDestroy
+    private void destroy() {
+        System.out.println("Classical music DESTRACTION");
     }
 
     private List<String> classicalMusicList = new ArrayList<>();
