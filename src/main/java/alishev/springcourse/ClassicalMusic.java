@@ -9,10 +9,8 @@ import javax.annotation.PreDestroy;
 import java.util.ArrayList;
 import java.util.List;
 
-@Component @Scope("prototype")
 public class ClassicalMusic implements Music {
-    private ClassicalMusic() {
-    }
+
     @PostConstruct
     private void init(){
         System.out.println("Classical Music INITIALIZATION");
